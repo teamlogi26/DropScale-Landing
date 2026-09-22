@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DropScale / Nexus Commerce | Escala tu E-commerce, Fulfillment y Dropshipping</title>
+  <meta name="description" content="Aprende a escalar tus ventas online, optimizar tu fulfillment y crear un negocio de dropshipping de alto margen con asesoría personalizada 1 a 1.">
+  
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f5f3ff',
+              100: '#ede9fe',
+              400: '#a78bfa',
+              500: '#8b5cf6',
+              600: '#7c3aed',
+              700: '#6d28d9',
+              800: '#5b21b6',
+              900: '#4c1d95',
+            },
+            dark: {
+              900: '#09090b',
+              850: '#101014',
+              800: '#18181b',
+              700: '#27272a',
+              600: '#3f3f46',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[#09090b] text-gray-100 font-sans antialiased selection:bg-brand-600 selection:text-white min-h-screen flex flex-col">
+
+  <!-- ================= NAVBAR ================= -->
+  <header class="sticky top-0 z-40 w-full backdrop-blur-xl bg-[#09090b]/80 border-b border-white/10 transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-700 via-brand-600 to-indigo-500 p-0.5 shadow-lg shadow-brand-600/30">
+          <div class="w-full h-full bg-[#09090b] rounded-[10px] flex items-center justify-center">
+            <i data-lucide="boxes" class="w-5 h-5 text-brand-400 group-hover:scale-110 transition-transform"></i>
+          </div>
+        </div>
+        <div>
+          <span class="text-xl font-extrabold tracking-tight text-white flex items-center gap-1.5">
+            DropScale <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-brand-500/20 text-brand-300 border border-brand-500/30">NEXUS</span>
+          </span>
+          <span class="block text-[11px] font-medium tracking-wider text-gray-400 uppercase">Fulfillment & Dropshipping</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+        <a href="#pilares" class="hover:text-white hover:text-brand-300 transition-colors">Ventajas</a>
+        <a href="#registro-form" class="hover:text-white hover:text-brand-300 transition-colors">Postulación</a>
+        <a href="#faq" class="hover:text-white hover:text-brand-300 transition-colors">Preguntas Frecuentes</a>
+      </nav>
+
+      <!-- Nav CTA -->
+      <div class="flex items-center gap-3">
+        <a href="https://wa.me/3105420351?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20asesor%C3%ADa%20en%20E-commerce%20y%20Fulfillment"
+           target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-semibold text-sm transition-all shadow-md shadow-brand-600/25 hover:shadow-brand-600/40 hover:-translate-y-0.5 active:translate-y-0">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          <span class="hidden sm:inline">Hablar por WhatsApp</span>
+          <span class="sm:hidden">WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow">
+    <!-- ================= HERO SECTION ================= -->
+    <section class="relative pt-16 pb-20 md:pt-24 md:pb-28 overflow-hidden bg-grid-hero border-b border-white/5">
+      <!-- Glow ambient lights -->
+      <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[350px] bg-brand-600/20 blur-[130px] rounded-full pointer-events-none"></div>
+
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/30 text-brand-300 text-xs sm:text-sm font-semibold mb-8 shadow-inner animate-fade-in">
+          <span class="flex h-2 w-2 rounded-full bg-brand-400 animate-ping"></span>
+          <span>Estrategia Comprobada E-Commerce & Dropshipping 2026</span>
+        </div>
+
+        <!-- Headline -->
+        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6 leading-[1.12]">
+          Escala tu Tienda Online con <br class="hidden sm:inline">
+          <span class="text-gradient-purple">Fulfillment Inteligente</span> y Ventas de Alto Margen
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-gray-300 mb-10 leading-relaxed font-normal">
+          Aprende el sistema paso a paso para vender por internet, automatizar despachos y multiplicar tus utilidades en dropshipping sin sufrir por inventarios atrapados. Agenda tu entrevista de diagnóstico con nuestro equipo comercial hoy mismo.
+        </p>
+
+        <!-- CTA Action Buttons -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+          <!-- Main WhatsApp Button (as requested) -->
+          <a href="https://wa.me/3105420351?text=Hola%2C%20quiero%20agendar%20mi%20entrevista%20con%20el%20grupo%20comercial%20de%20DropScale" 
+             target="_blank" rel="noopener noreferrer"
+             class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-brand-600 hover:bg-brand-500 text-white font-bold text-base transition-all shadow-xl shadow-brand-600/40 hover:shadow-brand-600/60 hover:-translate-y-1 active:translate-y-0 text-center">
+            <i data-lucide="message-circle" class="w-5 h-5 text-brand-100"></i>
+            <span>Hablar por WhatsApp</span>
+          </a>
+
+          <!-- Secondary CTA: Jump to form -->
+          <a href="#registro-form" 
+             class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl bg-white/5 hover:bg-white/10 text-gray-200 hover:text-white font-semibold text-base border border-white/15 transition-all hover:-translate-y-1">
+            <span>Calificar para Asesoría</span>
+            <i data-lucide="arrow-down" class="w-4 h-4"></i>
+          </a>
+        </div>
+
+        <!-- Trust bullet tags -->
+        <div class="flex flex-wrap items-center justify-center gap-6 text-xs sm:text-sm text-gray-400 font-medium">
+          <div class="flex items-center gap-2">
+            <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-400"></i>
+            <span>Sin costos ocultos</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-400"></i>
+            <span>Despachos en 24 Horas</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-400"></i>
+            <span>Acompañamiento Comercial 1 a 1</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= METRICS & SOCIAL PROOF STRIP ================= -->
+    <section class="border-b border-white/5 bg-dark-850/50 py-10 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          <div class="p-4 rounded-xl bg-white/[0.02] border border-white/5">
+            <div class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-1">+1,200</div>
+            <div class="text-xs sm:text-sm font-medium text-gray-400">Tiendas Escaladas</div>
+          </div>
+          <div class="p-4 rounded-xl bg-white/[0.02] border border-white/5">
+            <div class="text-3xl sm:text-4xl font-extrabold text-brand-400 tracking-tight mb-1">99.4%</div>
+            <div class="text-xs sm:text-sm font-medium text-gray-400">Efectividad en Entregas</div>
+          </div>
+          <div class="p-4 rounded-xl bg-white/[0.02] border border-white/5">
+            <div class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-1">+$4.8M</div>
+            <div class="text-xs sm:text-sm font-medium text-gray-400">Facturación Generada (USD)</div>
+          </div>
+          <div class="p-4 rounded-xl bg-white/[0.02] border border-white/5">
+            <div class="text-3xl sm:text-4xl font-extrabold text-brand-400 tracking-tight mb-1">100%</div>
+            <div class="text-xs sm:text-sm font-medium text-gray-400">Soporte Estratégico Real</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FORM SECTION (LEAD CAPTURE) ================= -->
+    <section id="registro-form" class="py-20 md:py-28 relative bg-[#09090b]">
+      <!-- Background glow -->
+      <div class="absolute bottom-1/3 right-10 w-96 h-96 bg-brand-700/10 blur-[120px] rounded-full pointer-events-none"></div>
+
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        
+        <!-- Section Header -->
+        <div class="text-center mb-10">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-500/10 text-brand-400 text-xs font-semibold mb-3 border border-brand-500/20">
+            <i data-lucide="user-check" class="w-3.5 h-3.5"></i>
+            <span>Diagnóstico Comercial Gratuito</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-3">
+            Postúlate para una Sesión Estratégica 1 a 1
+          </h2>
+          <p class="text-gray-400 text-sm sm:text-base max-w-lg mx-auto">
+            Completa tus datos a continuación. Analizaremos tu perfil para contactarte de inmediato vía WhatsApp y coordinar tu sesión personalizada.
+          </p>
+        </div>
+
+        <!-- FORM CARD -->
+        <div class="glass-card rounded-3xl p-6 sm:p-10 shadow-2xl border border-white/10 relative overflow-hidden purple-glow">
+          
+          <!-- Card top gradient line -->
+          <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-brand-500 to-transparent"></div>
+
+          <form id="leadForm" class="space-y-6" novalidate>
+            
+            <!-- Row 1: Nombre & Apellido -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div>
+                <label for="nombre" class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-2">
+                  Nombre <span class="text-brand-400">*</span>
+                </label>
+                <div class="relative">
+                  <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-500">
+                    <i data-lucide="user" class="w-4 h-4"></i>
+                  </span>
+                  <input type="text" id="nombre" name="nombre" required placeholder="Ej. Carlos"
+                         class="w-full pl-10 pr-4 py-3 rounded-xl bg-dark-900/90 border border-white/15 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all">
+                </div>
+                <p class="error-msg text-xs text-rose-400 mt-1.5 hidden">Por favor ingresa tu nombre.</p>
+              </div>
+
+              <div>
+                <label for="apellido" class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-2">
+                  Apellido <span class="text-brand-400">*</span>
+                </label>
+                <div class="relative">
+                  <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-500">
+                    <i data-lucide="user" class="w-4 h-4"></i>
+                  </span>
+                  <input type="text" id="apellido" name="apellido" required placeholder="Ej. Mendoza"
+                         class="w-full pl-10 pr-4 py-3 rounded-xl bg-dark-900/90 border border-white/15 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all">
+                </div>
+                <p class="error-msg text-xs text-rose-400 mt-1.5 hidden">Por favor ingresa tu apellido.</p>
+              </div>
+            </div>
+
+            <!-- Row 2: Celular & Correo -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div>
+                <label for="celular" class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-2">
+                  Celular / WhatsApp <span class="text-brand-400">*</span>
+                </label>
+                <div class="relative">
+                  <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-500">
+                    <i data-lucide="phone" class="w-4 h-4"></i>
+                  </span>
+                  <input type="tel" id="celular" name="celular" required placeholder="Ej. 310 542 0351"
+                         class="w-full pl-10 pr-4 py-3 rounded-xl bg-dark-900/90 border border-white/15 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all">
+                </div>
+                <p class="error-msg text-xs text-rose-400 mt-1.5 hidden">Ingresa un número de celular válido para contactarte.</p>
+              </div>
+
+              <div>
+                <label for="correo" class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-2">
+                  Correo Electrónico <span class="text-gray-500 text-[11px] font-normal lowercase">(opcional)</span>
+                </label>
+                <div class="relative">
+                  <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-500">
+                    <i data-lucide="mail" class="w-4 h-4"></i>
+                  </span>
+                  <input type="email" id="correo" name="correo" placeholder="ejemplo@correo.com"
+                         class="w-full pl-10 pr-4 py-3 rounded-xl bg-dark-900/90 border border-white/15 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all">
+                </div>
+              </div>
+            </div>
+
+            <!-- Row 3: ¿Ha vendido anteriormente? (Select obligatorio) -->
+            <div>
+              <label for="haVendido" class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-2">
+                ¿Has vendido anteriormente por internet? <span class="text-brand-400">*</span>
+              </label>
+              <div class="relative">
+                <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-500">
+                  <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                </span>
+                <select id="haVendido" name="haVendido" required
+                        class="w-full pl-10 pr-10 py-3 rounded-xl bg-dark-900/90 border border-white/15 text-white text-sm focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all appearance-none cursor-pointer">
+                  <option value="" disabled selected class="text-gray-500">Selecciona una opción...</option>
+                  <option value="Sí" class="bg-dark-900 text-white">Sí, ya he vendido anteriormente</option>
+                  <option value="No" class="bg-dark-900 text-white">No, soy principiante total</option>
+                </select>
+                <span class="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none text-gray-400">
+                  <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                </span>
+              </div>
+              <p class="error-msg text-xs text-rose-400 mt-1.5 hidden">Por favor selecciona si has vendido antes.</p>
+            </div>
+
+            <!-- CONDITIONAL FIELDS: Revealed when "Sí" is selected -->
+            <div id="conditionalExperienceGroup" class="conditional-field-wrapper space-y-5 hidden-smooth">
+              
+              <!-- ¿Cuánto ha vendido? -->
+              <div>
+                <label for="cuantoHaVendido" class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-2">
+                  ¿Cuánto has vendido aproximadamente? <span class="text-gray-500 text-[11px] font-normal lowercase">(opcional)</span>
+                </label>
+                <div class="relative">
+                  <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-500">
+                    <i data-lucide="dollar-sign" class="w-4 h-4"></i>
+                  </span>
+                  <input type="text" id="cuantoHaVendido" name="cuantoHaVendido" placeholder="Ej. $5,000 USD al mes / 100 pedidos mensuales"
+                         class="w-full pl-10 pr-4 py-3 rounded-xl bg-dark-900/90 border border-white/15 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all">
+                </div>
+              </div>
+
+              <!-- ¿Qué producto ha comercializado anteriormente? -->
+              <div>
+                <label for="productoAnterior" class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-2">
+                  ¿Qué producto o nicho has comercializado antes? <span class="text-gray-500 text-[11px] font-normal lowercase">(opcional)</span>
+                </label>
+                <div class="relative">
+                  <textarea id="productoAnterior" name="productoAnterior" rows="2" placeholder="Ej. Artículos de belleza, tecnología para el hogar, ropa deportiva..."
+                            class="w-full p-3.5 rounded-xl bg-dark-900/90 border border-white/15 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all resize-none"></textarea>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Field 8: ¿Qué producto nuevo le gustaría comercializar? (Opcional) -->
+            <div>
+              <label for="productoNuevo" class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-2">
+                ¿Qué producto nuevo te gustaría comercializar? <span class="text-gray-500 text-[11px] font-normal lowercase">(opcional)</span>
+              </label>
+              <div class="relative">
+                <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-500">
+                  <i data-lucide="sparkles" class="w-4 h-4"></i>
+                </span>
+                <input type="text" id="productoNuevo" name="productoNuevo" placeholder="Ej. Gadgets inteligentes, suplementos, moda de nicho..."
+                       class="w-full pl-10 pr-4 py-3 rounded-xl bg-dark-900/90 border border-white/15 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all">
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="pt-2">
+              <button type="submit" id="submitBtn"
+                      class="w-full inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-bold text-base transition-all shadow-xl shadow-brand-600/35 hover:shadow-brand-600/50 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed">
+                <i data-lucide="send" class="w-5 h-5"></i>
+                <span>Enviar Postulación y Descargar Ficha (.CSV)</span>
+              </button>
+            </div>
+
+            <!-- Disclaimer -->
+            <p class="text-center text-xs text-gray-500 flex items-center justify-center gap-1.5 pt-2">
+              <i data-lucide="shield-check" class="w-4 h-4 text-emerald-500"></i>
+              <span>Tus datos son 100% confidenciales y están protegidos.</span>
+            </p>
+
+          </form>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= VALUE PILLARS SECTION ================= -->
+    <section id="pilares" class="py-20 bg-dark-850/60 border-t border-b border-white/5 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="text-brand-400 font-semibold text-xs tracking-wider uppercase bg-brand-500/10 px-3 py-1 rounded-full border border-brand-500/20">
+            Ventajas Competitivas
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mt-3 mb-4">
+            Los 3 Pilares para Escalar tu Negocio
+          </h2>
+          <p class="text-gray-400 text-sm sm:text-base">
+            Diseñamos una infraestructura que elimina las barreras tradicionales de los negocios digitales: logística ineficiente, proveedores lentos y falta de guía estratégica.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          <!-- Pillar 1 -->
+          <div class="glass-card rounded-2xl p-8 border border-white/10 hover:border-brand-500/40 transition-all purple-glow-hover flex flex-col justify-between">
+            <div>
+              <div class="w-14 h-14 rounded-2xl bg-brand-600/15 border border-brand-500/30 flex items-center justify-center mb-6 text-brand-400">
+                <i data-lucide="truck" class="w-7 h-7"></i>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-3">Fulfillment Automatizado</h3>
+              <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                Almacenamiento seguro, picking & packing automatizado con despacho el mismo día. Olvídate de empacar paquetes y enfocarte exclusivamente en tus ventas y marketing.
+              </p>
+            </div>
+            <ul class="space-y-2.5 text-xs text-gray-300 border-t border-white/10 pt-4">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-400"></i> Despacho garantizado en 24h</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-400"></i> Integración directa con tu tienda</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-400"></i> Rastreo en tiempo real para clientes</li>
+            </ul>
+          </div>
+
+          <!-- Pillar 2 -->
+          <div class="glass-card rounded-2xl p-8 border border-white/10 hover:border-brand-500/40 transition-all purple-glow-hover flex flex-col justify-between">
+            <div>
+              <div class="w-14 h-14 rounded-2xl bg-brand-600/15 border border-brand-500/30 flex items-center justify-center mb-6 text-brand-400">
+                <i data-lucide="trending-up" class="w-7 h-7"></i>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-3">Dropshipping Rentable</h3>
+              <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                Acceso exclusivo a catálogo de productos ganadores validados, proveedores certificados y márgenes reales del 40% al 60% sin arriesgar tu capital en inventarios muertos.
+              </p>
+            </div>
+            <ul class="space-y-2.5 text-xs text-gray-300 border-t border-white/10 pt-4">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-400"></i> Productos de alta rotación testeados</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-400"></i> Precios mayoristas de fábrica</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-400"></i> Sin inversión inicial de stock</li>
+            </ul>
+          </div>
+
+          <!-- Pillar 3 -->
+          <div class="glass-card rounded-2xl p-8 border border-white/10 hover:border-brand-500/40 transition-all purple-glow-hover flex flex-col justify-between">
+            <div>
+              <div class="w-14 h-14 rounded-2xl bg-brand-600/15 border border-brand-500/30 flex items-center justify-center mb-6 text-brand-400">
+                <i data-lucide="users" class="w-7 h-7"></i>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-3">Mentoría Comercial 1 a 1</h3>
+              <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                No estás solo. Cuentas con un equipo comercial y asesores expertos que auditan tus campañas, páginas de venta y embudos de conversión para garantizar tu retorno publicitario.
+              </p>
+            </div>
+            <ul class="space-y-2.5 text-xs text-gray-300 border-t border-white/10 pt-4">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-400"></i> Auditoría personalizada de embudo</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-400"></i> Estrategia de pauta Meta & TikTok Ads</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-400"></i> Canal directo de WhatsApp prioritario</li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= FAQ ACCORDION SECTION ================= -->
+    <section id="faq" class="py-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center mb-14">
+        <span class="text-brand-400 font-semibold text-xs tracking-wider uppercase bg-brand-500/10 px-3 py-1 rounded-full border border-brand-500/20">
+          Respuestas Claras
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mt-3 mb-3">
+          Preguntas Frecuentes
+        </h2>
+        <p class="text-gray-400 text-sm sm:text-base">
+          Resolvemos las dudas más comunes sobre nuestro ecosistema de fulfillment y dropshipping.
+        </p>
+      </div>
+
+      <div class="space-y-4" id="faqList">
+        
+        <!-- Question 1 -->
+        <div class="faq-item glass-card rounded-2xl border border-white/10 transition-all">
+          <button type="button" class="faq-toggle w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 cursor-pointer">
+            <span class="font-semibold text-base sm:text-lg text-white">¿Cómo funciona el servicio de fulfillment para dropshipping?</span>
+            <i data-lucide="chevron-down" class="faq-chevron w-5 h-5 text-brand-400 transition-transform flex-shrink-0"></i>
+          </button>
+          <div class="faq-answer px-5 sm:px-6 pb-6 text-gray-400 text-sm leading-relaxed">
+            Nosotros almacenamos los productos en nuestras bodegas centrales. Cuando realizas una venta en tu tienda online (Shopify, WooCommerce, etc.), nuestro sistema recibe la orden, nuestro equipo la empaca profesionalmente y la entrega a la transportadora el mismo día con pago contra entrega o prepago.
+          </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="faq-item glass-card rounded-2xl border border-white/10 transition-all">
+          <button type="button" class="faq-toggle w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 cursor-pointer">
+            <span class="font-semibold text-base sm:text-lg text-white">¿Necesito experiencia previa vendiendo por internet para comenzar?</span>
+            <i data-lucide="chevron-down" class="faq-chevron w-5 h-5 text-brand-400 transition-transform flex-shrink-0"></i>
+          </button>
+          <div class="faq-answer px-5 sm:px-6 pb-6 text-gray-400 text-sm leading-relaxed">
+            No necesitas experiencia previa. Si estás comenzando desde cero, en la entrevista comercial evaluaremos tu punto de partida y te proporcionaremos la hoja de ruta clara para crear tu tienda y lanzar tus primeras campañas con productos validados.
+          </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="faq-item glass-card rounded-2xl border border-white/10 transition-all">
+          <button type="button" class="faq-toggle w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 cursor-pointer">
+            <span class="font-semibold text-base sm:text-lg text-white">¿Qué costo tiene la entrevista comercial de diagnóstico?</span>
+            <i data-lucide="chevron-down" class="faq-chevron w-5 h-5 text-brand-400 transition-transform flex-shrink-0"></i>
+          </button>
+          <div class="faq-answer px-5 sm:px-6 pb-6 text-gray-400 text-sm leading-relaxed">
+            La entrevista comercial es 100% gratuita y sin compromiso. Es un espacio de 20 minutos donde nuestro equipo comercial analizará tu proyecto para ver si tu modelo es apto para integrarse con nuestro sistema de bodegas y catálogo.
+          </div>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="faq-item glass-card rounded-2xl border border-white/10 transition-all">
+          <button type="button" class="faq-toggle w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 cursor-pointer">
+            <span class="font-semibold text-base sm:text-lg text-white">¿Cómo se gestionan las devoluciones y novedades de entrega?</span>
+            <i data-lucide="chevron-down" class="faq-chevron w-5 h-5 text-brand-400 transition-transform flex-shrink-0"></i>
+          </button>
+          <div class="faq-answer px-5 sm:px-6 pb-6 text-gray-400 text-sm leading-relaxed">
+            Contamos con un equipo dedicado a la gestión activa de novedades con las transportadoras para rescatar paquetes antes de que se conviertan en devolución. Si un paquete regresa a bodega, se reingresa al inventario automáticamente sin costes desproporcionados.
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-dark-900 border-t border-white/10 pt-16 pb-12 relative bg-grid-subtle">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Multicolumn Layout -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+        
+        <!-- Col 1: Brand -->
+        <div>
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-9 h-9 rounded-lg bg-brand-600 flex items-center justify-center">
+              <i data-lucide="boxes" class="w-5 h-5 text-white"></i>
+            </div>
+            <span class="text-lg font-extrabold text-white tracking-tight">DropScale Nexus</span>
+          </div>
+          <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-5">
+            Infraestructura logística, fulfillment y asesoría estratégica de alto rendimiento para tiendas de comercio electrónico y dropshippers en Latinoamérica.
+          </p>
+          <div class="flex items-center gap-3 text-gray-400">
+            <a href="https://wa.me/3105420351" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-lg bg-white/5 hover:bg-brand-600 hover:text-white flex items-center justify-center transition-colors">
+              <i data-lucide="message-circle" class="w-4 h-4"></i>
+            </a>
+            <a href="mailto:contacto@dropscale.com" class="w-8 h-8 rounded-lg bg-white/5 hover:bg-brand-600 hover:text-white flex items-center justify-center transition-colors">
+              <i data-lucide="mail" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Soluciones -->
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-gray-300 mb-4">Soluciones</h4>
+          <ul class="space-y-2.5 text-xs sm:text-sm text-gray-400">
+            <li><a href="#pilares" class="hover:text-brand-300 transition-colors">Fulfillment y Bodegaje Express</a></li>
+            <li><a href="#pilares" class="hover:text-brand-300 transition-colors">Catálogo Dropshipping Verificado</a></li>
+            <li><a href="#pilares" class="hover:text-brand-300 transition-colors">Integración y Despacho Automatizado</a></li>
+            <li><a href="#pilares" class="hover:text-brand-300 transition-colors">Mentoría Comercial 1 a 1</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Enlaces Rápidos -->
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-gray-300 mb-4">Navegación</h4>
+          <ul class="space-y-2.5 text-xs sm:text-sm text-gray-400">
+            <li><a href="#" class="hover:text-brand-300 transition-colors">Inicio</a></li>
+            <li><a href="#registro-form" class="hover:text-brand-300 transition-colors">Formulario de Postulación</a></li>
+            <li><a href="#faq" class="hover:text-brand-300 transition-colors">Preguntas Frecuentes</a></li>
+            <li><a href="https://wa.me/3105420351" target="_blank" rel="noopener noreferrer" class="hover:text-brand-300 transition-colors">Contacto WhatsApp</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Atención & Contacto -->
+        <div>
+          <h4 class="text-xs font-bold uppercase tracking-wider text-gray-300 mb-4">Atención Comercial</h4>
+          <p class="text-gray-400 text-xs sm:text-sm mb-3">
+            Línea directa para agendamiento y soporte de tiendas activas:
+          </p>
+          <a href="https://wa.me/3105420351" target="_blank" rel="noopener noreferrer" 
+             class="inline-flex items-center gap-2 text-sm font-semibold text-brand-400 hover:text-brand-300 transition-colors">
+            <i data-lucide="phone-call" class="w-4 h-4"></i>
+            <span>+57 310 542 0351</span>
+          </a>
+          <p class="text-gray-500 text-xs mt-3">
+            Lunes a Sábado: 8:00 AM - 7:00 PM
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+        <p>© 2026 DropScale Nexus Commerce. Todos los derechos reservados.</p>
+        <p class="flex items-center gap-4">
+          <span class="hover:text-gray-400 cursor-pointer">Términos del Servicio</span>
+          <span>•</span>
+          <span class="hover:text-gray-400 cursor-pointer">Política de Privacidad</span>
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ================= SUCCESS MODAL ================= -->
+  <div id="successModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="glass-card rounded-3xl max-w-md w-full p-6 sm:p-8 text-center border border-white/20 shadow-2xl transform scale-95 transition-transform duration-300 relative" id="modalCard">
+      
+      <!-- Close button -->
+      <button type="button" id="closeModalBtn" class="absolute top-4 right-4 text-gray-400 hover:text-white p-1 rounded-lg transition-colors">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <!-- Check Animation Icon -->
+      <div class="w-16 h-16 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center mx-auto mb-5">
+        <i data-lucide="check-circle" class="w-8 h-8"></i>
+      </div>
+
+      <h3 class="text-2xl font-extrabold text-white mb-2">¡Postulación Recibida con Éxito!</h3>
+      <p class="text-gray-300 text-sm mb-4">
+        Hemos registrado tus respuestas y descargado automáticamente tu <strong>archivo .CSV</strong> para Excel.
+      </p>
+
+      <div class="bg-white/5 rounded-xl p-3.5 mb-6 text-xs text-gray-300 border border-white/10">
+        <div class="flex items-center justify-center gap-2 font-medium text-brand-300 mb-1">
+          <i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i>
+          <span>Conectando con el equipo comercial...</span>
+        </div>
+        <p>Redirigiendo a WhatsApp en <span id="countdownTimer" class="font-bold text-white text-sm">2</span> segundos...</p>
+      </div>
+
+      <div class="flex flex-col gap-2.5">
+        <a id="modalWhatsappLink" href="https://wa.me/3105420351" target="_blank" rel="noopener noreferrer"
+           class="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-bold text-sm transition-all shadow-lg shadow-brand-600/30">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          <span>Abrir WhatsApp Ahora</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================= FLOATING WHATSAPP BUTTON ================= -->
+  <aside aria-label="Contacto Rápido WhatsApp" class="fixed bottom-6 right-6 z-40 flex items-center group">
+    <div class="hidden md:flex items-center mr-3 px-3.5 py-1.5 rounded-xl bg-dark-850 border border-white/10 shadow-lg text-xs font-semibold text-gray-200 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity">
+      ¿Tienes dudas? Escríbenos
+    </div>
+    <a href="https://wa.me/3105420351?text=Hola%2C%20quiero%20conocer%20m%C3%A1s%20sobre%20DropScale%20Fulfillment"
+       target="_blank" rel="noopener noreferrer"
+       class="w-14 h-14 rounded-2xl bg-brand-600 hover:bg-brand-500 text-white flex items-center justify-center shadow-xl shadow-brand-600/40 hover:scale-105 active:scale-95 transition-all purple-glow animate-pulse-subtle">
+      <i data-lucide="message-circle" class="w-7 h-7"></i>
+    </a>
+  </aside>
+
+  <!-- JavaScript -->
+  <script src="app.js"></script>
+</body>
+</html>
