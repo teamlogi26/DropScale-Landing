@@ -176,6 +176,30 @@ document.addEventListener('DOMContentLoaded', () => {
       const whatsappUrl = `${whatsappBase}?text=${encodeURIComponent(message)}`;
       modalWhatsappLink.href = whatsappUrl;
 
+      // 3. Registrar evento de conversión en Google Analytics 4 (GA4)
+      const trackEvent = (eventName, params) => {
+        if (typeof window.gtag === 'function') {
+          window.gtag('event', eventName, params);
+        } else if (typeof gtag === 'function') {
+          gtag('event', eventName, params);
+        } else if (window.dataLayer) {
+          window.dataLayer.push({ event: eventName, ...params });
+        }
+      };
+
+      trackEvent('generate_lead', {
+        event_category: 'Lead',
+        event_label: nicho,
+        nicho: nicho,
+        ha_vendido: haVendido,
+        ventas_diarias: ventasDiarias
+      });
+      trackEvent('submit_questionnaire', {
+        event_category: 'Cuestionario',
+        nicho: nicho,
+        ha_vendido: haVendido
+      });
+
       // 4. Mostrar Modal de éxito y cuenta regresiva
       showModal(whatsappUrl);
 
@@ -301,5 +325,44 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
     });
+  });
+
+  // 7. Rastrear Clics e Interacciones en Google Analytics 4 (GA4)
+  document.addEventListener('click', (e) => {
+    const trackEvent = (eventName, params) => {
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', eventName, params);
+      } else if (typeof gtag === 'function') {
+        gtag('event', eventName, params);
+      } else if (window.dataLayer) {
+        window.dataLayer.push({ event: eventName, ...params });
+      }
+    };
+
+    // A. Clics en WhatsApp
+    const waLink = e.target.closest('a[href*="wa.me"]');
+    if (waLink) {
+      const location = waLink.closest('header') ? 'navbar' 
+                     : waLink.closest('#successModal') ? 'success_modal'
+                     : waLink.closest('footer') ? 'footer'
+                     : waLink.closest('aside') ? 'floating_button' 
+                     : 'hero_content';
+
+      trackEvent('click_whatsapp', {
+        event_category: 'Engagement',
+        event_label: location,
+        location: location
+      });
+    }
+
+    // B. Clics en botones CTA que llevan al formulario (#registro-form)
+    const ctaFormLink = e.target.closest('a[href="#registro-form"]');
+    if (ctaFormLink) {
+      const ctaLocation = ctaFormLink.closest('nav') ? 'navbar' : 'hero_button';
+      trackEvent('click_cta_form', {
+        event_category: 'Engagement',
+        event_label: ctaLocation
+      });
+    }
   });
 });
