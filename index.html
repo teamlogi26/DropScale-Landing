@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DropScale / Nexus Commerce | Escala tu E-commerce, Fulfillment y Dropshipping</title>
+  <title>DropScale | Escala tu E-commerce, Fulfillment y Dropshipping</title>
   <meta name="description" content="Aprende a escalar tus ventas online, optimizar tu fulfillment y crear un negocio de dropshipping de alto margen con asesoría personalizada 1 a 1.">
+  <link rel="icon" type="image/png" href="icons/dropscale-icon-64.png">
   
   <!-- Google Fonts: Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,21 +21,25 @@
         extend: {
           colors: {
             brand: {
-              50: '#f5f3ff',
-              100: '#ede9fe',
-              400: '#a78bfa',
-              500: '#8b5cf6',
-              600: '#7c3aed',
-              700: '#6d28d9',
-              800: '#5b21b6',
-              900: '#4c1d95',
+              50: '#faf5ff',
+              100: '#f3e8ff',
+              200: '#e9d5ff',
+              300: '#d8b4fe',
+              400: '#a855f7',
+              500: '#7e22ce',
+              600: '#5F0AC7', // Color estándar seleccionado
+              700: '#4c08a3',
+              800: '#3b067f',
+              900: '#2a045c',
+              950: '#180238',
             },
             dark: {
-              900: '#09090b',
-              850: '#101014',
-              800: '#18181b',
-              700: '#27272a',
-              600: '#3f3f46',
+              950: '#000000',
+              900: '#000000', // Negro puro estándar
+              850: '#08080c',
+              800: '#101018',
+              700: '#1c1c28',
+              600: '#2a2a3c',
             }
           },
           fontFamily: {
@@ -51,21 +56,19 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-[#09090b] text-gray-100 font-sans antialiased selection:bg-brand-600 selection:text-white min-h-screen flex flex-col">
+<body class="bg-[#000000] text-gray-100 font-sans antialiased selection:bg-brand-600 selection:text-white min-h-screen flex flex-col">
 
   <!-- ================= NAVBAR ================= -->
-  <header class="sticky top-0 z-40 w-full backdrop-blur-xl bg-[#09090b]/80 border-b border-white/10 transition-all">
+  <header class="sticky top-0 z-40 w-full backdrop-blur-xl bg-[#000000]/85 border-b border-[#5F0AC7]/20 transition-all">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       <!-- Brand Logo -->
       <a href="#" class="flex items-center gap-3 group">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-700 via-brand-600 to-indigo-500 p-0.5 shadow-lg shadow-brand-600/30">
-          <div class="w-full h-full bg-[#09090b] rounded-[10px] flex items-center justify-center">
-            <i data-lucide="boxes" class="w-5 h-5 text-brand-400 group-hover:scale-110 transition-transform"></i>
-          </div>
+        <div class="w-11 h-11 rounded-xl overflow-hidden bg-black p-0 border border-[#5F0AC7]/50 shadow-lg shadow-brand-600/30 group-hover:border-brand-400 group-hover:shadow-brand-600/50 transition-all flex items-center justify-center">
+          <img src="icons/dropscale-icon-256.png" alt="DropScale Icon" class="w-full h-full object-cover scale-110 group-hover:scale-120 transition-transform">
         </div>
         <div>
-          <span class="text-xl font-extrabold tracking-tight text-white flex items-center gap-1.5">
-            DropScale <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-brand-500/20 text-brand-300 border border-brand-500/30">NEXUS</span>
+          <span class="text-xl font-extrabold tracking-tight text-white flex items-center">
+            DropScale
           </span>
           <span class="block text-[11px] font-medium tracking-wider text-gray-400 uppercase">Fulfillment & Dropshipping</span>
         </div>
@@ -96,6 +99,109 @@
     <section class="relative pt-16 pb-20 md:pt-24 md:pb-28 overflow-hidden bg-grid-hero border-b border-white/5">
       <!-- Glow ambient lights -->
       <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[350px] bg-brand-600/20 blur-[130px] rounded-full pointer-events-none"></div>
+
+      <!-- ================= BACKGROUND TRANSLUCENT WATERMARKS: PESOS "$" & GRÁFICOS DE BARRA CON FLECHA ================= -->
+      <div class="absolute inset-0 overflow-hidden pointer-events-none select-none z-0">
+        
+        <!-- ================= 1. SÍMBOLOS DE PESOS "$" TRANSLÚCIDOS Y TENUES ================= -->
+        <!-- XXL $ (Superior Izquierda) -->
+        <div class="absolute -top-14 left-[2%] text-[210px] lg:text-[280px] font-black text-[#5F0AC7]/[0.038] -rotate-12 select-none pointer-events-none animate-float-1">
+          $
+        </div>
+
+        <!-- XL $ (Centro Derecha) -->
+        <div class="absolute top-[26%] -right-8 text-[180px] lg:text-[240px] font-black text-emerald-500/[0.032] rotate-12 select-none pointer-events-none animate-float-2">
+          $
+        </div>
+
+        <!-- L $ (Inferior Izquierda) -->
+        <div class="absolute -bottom-14 left-[10%] text-[150px] lg:text-[200px] font-black text-purple-400/[0.032] rotate-6 select-none pointer-events-none animate-float-3">
+          $
+        </div>
+
+        <!-- L $ (Inferior Derecha) -->
+        <div class="absolute bottom-2 right-[6%] text-[130px] lg:text-[180px] font-black text-[#5F0AC7]/[0.03] -rotate-8 select-none pointer-events-none animate-float-4">
+          $
+        </div>
+
+        <!-- M $ (Centro Superior Izquierda) -->
+        <div class="absolute top-[10%] left-[22%] text-[90px] lg:text-[120px] font-black text-[#5F0AC7]/[0.035] rotate-8 select-none pointer-events-none animate-float-2">
+          $
+        </div>
+
+        <!-- M $ (Lateral Izquierdo Centro) -->
+        <div class="absolute top-[48%] left-[3%] text-[80px] lg:text-[110px] font-black text-white/[0.028] -rotate-15 select-none pointer-events-none animate-float-5">
+          $
+        </div>
+
+        <!-- S $ (Centro Inferior Derecha) -->
+        <div class="absolute bottom-[22%] right-[22%] text-[65px] lg:text-[90px] font-black text-emerald-400/[0.03] rotate-10 select-none pointer-events-none animate-float-1">
+          $
+        </div>
+
+        <!-- S $ (Superior Flanco Derecho) -->
+        <div class="absolute top-[16%] right-[20%] text-[70px] lg:text-[95px] font-black text-purple-300/[0.028] -rotate-6 select-none pointer-events-none animate-float-3">
+          $
+        </div>
+
+        <!-- ================= 2. GRÁFICOS DE ESCALAMIENTO EN L CON FLECHA (RÉPLICA EXACTA NUEVA REFERENCIA) ================= -->
+        <!-- XL Gráfico con flecha (Superior Derecha) -->
+        <div class="absolute top-4 right-[4%] w-44 h-44 lg:w-60 lg:h-60 text-emerald-500/[0.045] rotate-6 select-none pointer-events-none animate-float-2">
+          <svg viewBox="0 0 100 100" fill="currentColor" class="w-full h-full">
+            <path d="M 6 5 L 6 91 Q 6 94 9 94 L 95 94" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M 16 63 L 31 44 Q 34 41, 37 43 L 57 51 L 73 27 L 68 23 Q 67 22, 69 21 L 87 13 Q 89 12, 90 14 L 92 32 Q 93 34, 91 35 L 83 31 L 67 61 Q 64 66, 59 64 L 39 55 L 16 78 Z" />
+          </svg>
+        </div>
+
+        <!-- L Gráfico con flecha (Lateral Izquierdo / Frente al titular) -->
+        <div class="absolute top-[36%] left-[2%] lg:left-[5%] w-36 h-36 lg:w-48 lg:h-48 text-[#5F0AC7]/[0.05] -rotate-6 select-none pointer-events-none animate-float-3">
+          <svg viewBox="0 0 100 100" fill="currentColor" class="w-full h-full">
+            <path d="M 6 5 L 6 91 Q 6 94 9 94 L 95 94" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M 16 63 L 31 44 Q 34 41, 37 43 L 57 51 L 73 27 L 68 23 Q 67 22, 69 21 L 87 13 Q 89 12, 90 14 L 92 32 Q 93 34, 91 35 L 83 31 L 67 61 Q 64 66, 59 64 L 39 55 L 16 78 Z" />
+          </svg>
+        </div>
+
+        <!-- L Gráfico con flecha (Inferior Derecha / Detrás de llamadas de acción) -->
+        <div class="absolute bottom-2 right-[18%] w-36 h-36 lg:w-48 lg:h-48 text-emerald-400/[0.04] rotate-3 select-none pointer-events-none animate-float-1">
+          <svg viewBox="0 0 100 100" fill="currentColor" class="w-full h-full">
+            <path d="M 6 5 L 6 91 Q 6 94 9 94 L 95 94" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M 16 63 L 31 44 Q 34 41, 37 43 L 57 51 L 73 27 L 68 23 Q 67 22, 69 21 L 87 13 Q 89 12, 90 14 L 92 32 Q 93 34, 91 35 L 83 31 L 67 61 Q 64 66, 59 64 L 39 55 L 16 78 Z" />
+          </svg>
+        </div>
+
+        <!-- M Gráfico con flecha (Superior Izquierda) -->
+        <div class="absolute top-8 left-[16%] w-24 h-24 lg:w-34 lg:h-34 text-[#5F0AC7]/[0.045] -rotate-10 select-none pointer-events-none animate-float-4">
+          <svg viewBox="0 0 100 100" fill="currentColor" class="w-full h-full">
+            <path d="M 6 5 L 6 91 Q 6 94 9 94 L 95 94" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M 16 63 L 31 44 Q 34 41, 37 43 L 57 51 L 73 27 L 68 23 Q 67 22, 69 21 L 87 13 Q 89 12, 90 14 L 92 32 Q 93 34, 91 35 L 83 31 L 67 61 Q 64 66, 59 64 L 39 55 L 16 78 Z" />
+          </svg>
+        </div>
+
+        <!-- M Gráfico con flecha (Inferior Izquierda) -->
+        <div class="absolute bottom-[18%] left-[20%] w-28 h-28 lg:w-36 lg:h-36 text-purple-400/[0.04] rotate-8 select-none pointer-events-none animate-float-5">
+          <svg viewBox="0 0 100 100" fill="currentColor" class="w-full h-full">
+            <path d="M 6 5 L 6 91 Q 6 94 9 94 L 95 94" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M 16 63 L 31 44 Q 34 41, 37 43 L 57 51 L 73 27 L 68 23 Q 67 22, 69 21 L 87 13 Q 89 12, 90 14 L 92 32 Q 93 34, 91 35 L 83 31 L 67 61 Q 64 66, 59 64 L 39 55 L 16 78 Z" />
+          </svg>
+        </div>
+
+        <!-- S Gráfico con flecha (Lateral Derecho Centro) -->
+        <div class="absolute top-[52%] right-[4%] lg:right-[12%] w-20 h-20 lg:w-26 lg:h-26 text-white/[0.035] -rotate-4 select-none pointer-events-none animate-float-2">
+          <svg viewBox="0 0 100 100" fill="currentColor" class="w-full h-full">
+            <path d="M 6 5 L 6 91 Q 6 94 9 94 L 95 94" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M 16 63 L 31 44 Q 34 41, 37 43 L 57 51 L 73 27 L 68 23 Q 67 22, 69 21 L 87 13 Q 89 12, 90 14 L 92 32 Q 93 34, 91 35 L 83 31 L 67 61 Q 64 66, 59 64 L 39 55 L 16 78 Z" />
+          </svg>
+        </div>
+
+        <!-- S Gráfico con flecha (Centro Superior) -->
+        <div class="absolute top-[16%] right-[32%] w-16 h-16 lg:w-22 lg:h-22 text-emerald-400/[0.032] rotate-12 select-none pointer-events-none animate-float-1">
+          <svg viewBox="0 0 100 100" fill="currentColor" class="w-full h-full">
+            <path d="M 6 5 L 6 91 Q 6 94 9 94 L 95 94" fill="none" stroke="currentColor" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M 16 63 L 31 44 Q 34 41, 37 43 L 57 51 L 73 27 L 68 23 Q 67 22, 69 21 L 87 13 Q 89 12, 90 14 L 92 32 Q 93 34, 91 35 L 83 31 L 67 61 Q 64 66, 59 64 L 39 55 L 16 78 Z" />
+          </svg>
+        </div>
+
+      </div>
 
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         
@@ -135,7 +241,7 @@
         </div>
 
         <!-- Trust bullet tags -->
-        <div class="flex flex-wrap items-center justify-center gap-6 text-xs sm:text-sm text-gray-400 font-medium">
+        <div class="flex flex-wrap items-center justify-center gap-6 text-xs sm:text-sm text-gray-400 font-medium mb-14">
           <div class="flex items-center gap-2">
             <i data-lucide="check-circle-2" class="w-4 h-4 text-brand-400"></i>
             <span>Sin costos ocultos</span>
@@ -149,7 +255,6 @@
             <span>Acompañamiento Comercial 1 a 1</span>
           </div>
         </div>
-
       </div>
     </section>
 
@@ -178,15 +283,15 @@
     </section>
 
     <!-- ================= FORM SECTION (LEAD CAPTURE) ================= -->
-    <section id="registro-form" class="py-20 md:py-28 relative bg-[#09090b]">
+    <section id="registro-form" class="py-20 md:py-28 relative bg-[#000000]">
       <!-- Background glow -->
-      <div class="absolute bottom-1/3 right-10 w-96 h-96 bg-brand-700/10 blur-[120px] rounded-full pointer-events-none"></div>
+      <div class="absolute bottom-1/3 right-10 w-96 h-96 bg-brand-600/20 blur-[120px] rounded-full pointer-events-none"></div>
 
       <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         <!-- Section Header -->
         <div class="text-center mb-10">
-          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-500/10 text-brand-400 text-xs font-semibold mb-3 border border-brand-500/20">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-500/10 text-brand-300 text-xs font-semibold mb-3 border border-brand-500/30">
             <i data-lucide="user-check" class="w-3.5 h-3.5"></i>
             <span>Diagnóstico Comercial Gratuito</span>
           </div>
@@ -199,7 +304,7 @@
         </div>
 
         <!-- FORM CARD -->
-        <div class="glass-card rounded-3xl p-6 sm:p-10 shadow-2xl border border-white/10 relative overflow-hidden purple-glow">
+        <div class="glass-card rounded-3xl p-6 sm:p-10 shadow-2xl border border-brand-600/30 relative overflow-hidden purple-glow">
           
           <!-- Card top gradient line -->
           <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-brand-500 to-transparent"></div>
@@ -292,17 +397,27 @@
             <!-- CONDITIONAL FIELDS: Revealed when "Sí" is selected -->
             <div id="conditionalExperienceGroup" class="conditional-field-wrapper space-y-5 hidden-smooth">
               
-              <!-- ¿Cuánto ha vendido? -->
+              <!-- Cantidad de Ventas Diarias Aprox -->
               <div>
-                <label for="cuantoHaVendido" class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-2">
-                  ¿Cuánto has vendido aproximadamente? <span class="text-gray-500 text-[11px] font-normal lowercase">(opcional)</span>
+                <label for="ventasDiarias" class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-2">
+                  Cantidad de Ventas / Pedidos Diarios Aprox <span class="text-gray-500 text-[11px] font-normal lowercase">(opcional)</span>
                 </label>
                 <div class="relative">
                   <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-500">
-                    <i data-lucide="dollar-sign" class="w-4 h-4"></i>
+                    <i data-lucide="package-check" class="w-4 h-4"></i>
                   </span>
-                  <input type="text" id="cuantoHaVendido" name="cuantoHaVendido" placeholder="Ej. $5,000 USD al mes / 100 pedidos mensuales"
-                         class="w-full pl-10 pr-4 py-3 rounded-xl bg-dark-900/90 border border-white/15 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all">
+                  <select id="ventasDiarias" name="ventasDiarias"
+                          class="w-full pl-10 pr-10 py-3 rounded-xl bg-dark-900/90 border border-white/15 text-white text-sm focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all appearance-none cursor-pointer">
+                    <option value="" selected class="text-gray-500">Selecciona tu rango de ventas diarias...</option>
+                    <option value="1 a 5 pedidos al día" class="bg-dark-900 text-white">1 a 5 pedidos al día (Validando ofertas)</option>
+                    <option value="6 a 20 pedidos al día" class="bg-dark-900 text-white">6 a 20 pedidos al día (Flujo constante)</option>
+                    <option value="21 a 50 pedidos al día" class="bg-dark-900 text-white">21 a 50 pedidos al día (En escalamiento)</option>
+                    <option value="51 a 100 pedidos al día" class="bg-dark-900 text-white">51 a 100 pedidos al día (Alto volumen)</option>
+                    <option value="Más de 100 pedidos al día" class="bg-dark-900 text-white">Más de 100 pedidos al día (Operación consolidada)</option>
+                  </select>
+                  <span class="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none text-gray-400">
+                    <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                  </span>
                 </div>
               </div>
 
@@ -319,16 +434,47 @@
 
             </div>
 
-            <!-- Field 8: ¿Qué producto nuevo le gustaría comercializar? (Opcional) -->
+            <!-- Field: Nicho de Mercado (Barra Desplegable para Filtrado) -->
+            <div>
+              <label for="nicho" class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-2">
+                Nicho de Mercado <span class="text-brand-400">*</span>
+              </label>
+              <div class="relative">
+                <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-500">
+                  <i data-lucide="layers" class="w-4 h-4"></i>
+                </span>
+                <select id="nicho" name="nicho" required
+                        class="w-full pl-10 pr-10 py-3 rounded-xl bg-dark-900/90 border border-white/15 text-white text-sm focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all appearance-none cursor-pointer">
+                  <option value="" disabled selected class="text-gray-500">Selecciona el nicho en el que operas o deseas vender...</option>
+                  <option value="Belleza y Cuidado Personal" class="bg-dark-900 text-white">Belleza y Cuidado Personal (Skincare, cosmética, capilar)</option>
+                  <option value="Salud, Bienestar y Fitness" class="bg-dark-900 text-white">Salud, Bienestar y Fitness (Nutrición, suplementos, accesorios)</option>
+                  <option value="Moda, Ropa y Calzado" class="bg-dark-900 text-white">Moda, Ropa y Calzado (Vestuario, fajas, prendas de tendencia)</option>
+                  <option value="Tecnología, Gadgets y Electrónica" class="bg-dark-900 text-white">Tecnología, Gadgets y Electrónica (Audio, smart gadgets, cables)</option>
+                  <option value="Hogar, Cocina y Organización" class="bg-dark-900 text-white">Hogar, Cocina y Organización (Utensilios inteligentes, decoración)</option>
+                  <option value="Mascotas" class="bg-dark-900 text-white">Mascotas (Cuidado, juguetes, accesorios para perros y gatos)</option>
+                  <option value="Joyería, Relojes y Accesorios" class="bg-dark-900 text-white">Joyería, Relojes y Accesorios (Relojes, cadenas, bisutería fina)</option>
+                  <option value="Bebés, Niños y Maternidad" class="bg-dark-900 text-white">Bebés, Niños y Maternidad (Cuidado infantil, estimulación, juguetes)</option>
+                  <option value="Herramientas y Ferretería" class="bg-dark-900 text-white">Herramientas y Ferretería (Bricolaje, autos, reparaciones)</option>
+                  <option value="Deportes y Aire Libre" class="bg-dark-900 text-white">Deportes y Aire Libre (Camping, ciclismo, entrenamiento)</option>
+                  <option value="Otro Nicho" class="bg-dark-900 text-white">Otro Nicho (Especificar abajo)</option>
+                </select>
+                <span class="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none text-gray-400">
+                  <i data-lucide="chevron-down" class="w-4 h-4"></i>
+                </span>
+              </div>
+              <p class="error-msg text-xs text-rose-400 mt-1.5 hidden">Por favor selecciona un nicho de mercado.</p>
+            </div>
+
+            <!-- Field: ¿Qué producto nuevo le gustaría comercializar? (Opcional) -->
             <div>
               <label for="productoNuevo" class="block text-xs font-semibold uppercase tracking-wider text-gray-300 mb-2">
-                ¿Qué producto nuevo te gustaría comercializar? <span class="text-gray-500 text-[11px] font-normal lowercase">(opcional)</span>
+                ¿Qué producto específico te gustaría comercializar o escalar? <span class="text-gray-500 text-[11px] font-normal lowercase">(opcional)</span>
               </label>
               <div class="relative">
                 <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-500">
                   <i data-lucide="sparkles" class="w-4 h-4"></i>
                 </span>
-                <input type="text" id="productoNuevo" name="productoNuevo" placeholder="Ej. Gadgets inteligentes, suplementos, moda de nicho..."
+                <input type="text" id="productoNuevo" name="productoNuevo" placeholder="Ej. Depiladoras láser, organizadores acrílicos, termos inteligentes..."
                        class="w-full pl-10 pr-4 py-3 rounded-xl bg-dark-900/90 border border-white/15 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 transition-all">
               </div>
             </div>
@@ -338,7 +484,7 @@
               <button type="submit" id="submitBtn"
                       class="w-full inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-bold text-base transition-all shadow-xl shadow-brand-600/35 hover:shadow-brand-600/50 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed">
                 <i data-lucide="send" class="w-5 h-5"></i>
-                <span>Enviar Postulación y Descargar Ficha (.CSV)</span>
+                <span>Enviar Postulación y Conectar por WhatsApp</span>
               </button>
             </div>
 
@@ -374,7 +520,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           
           <!-- Pillar 1 -->
-          <div class="glass-card rounded-2xl p-8 border border-white/10 hover:border-brand-500/40 transition-all purple-glow-hover flex flex-col justify-between">
+          <div class="glass-card rounded-2xl p-8 border border-blue-500/20 hover:border-brand-400/50 transition-all blue-glow-hover flex flex-col justify-between">
             <div>
               <div class="w-14 h-14 rounded-2xl bg-brand-600/15 border border-brand-500/30 flex items-center justify-center mb-6 text-brand-400">
                 <i data-lucide="truck" class="w-7 h-7"></i>
@@ -384,7 +530,7 @@
                 Almacenamiento seguro, picking & packing automatizado con despacho el mismo día. Olvídate de empacar paquetes y enfocarte exclusivamente en tus ventas y marketing.
               </p>
             </div>
-            <ul class="space-y-2.5 text-xs text-gray-300 border-t border-white/10 pt-4">
+            <ul class="space-y-2.5 text-xs text-gray-300 border-t border-blue-500/15 pt-4">
               <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-400"></i> Despacho garantizado en 24h</li>
               <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-400"></i> Integración directa con tu tienda</li>
               <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-400"></i> Rastreo en tiempo real para clientes</li>
@@ -392,7 +538,7 @@
           </div>
 
           <!-- Pillar 2 -->
-          <div class="glass-card rounded-2xl p-8 border border-white/10 hover:border-brand-500/40 transition-all purple-glow-hover flex flex-col justify-between">
+          <div class="glass-card rounded-2xl p-8 border border-blue-500/20 hover:border-brand-400/50 transition-all blue-glow-hover flex flex-col justify-between">
             <div>
               <div class="w-14 h-14 rounded-2xl bg-brand-600/15 border border-brand-500/30 flex items-center justify-center mb-6 text-brand-400">
                 <i data-lucide="trending-up" class="w-7 h-7"></i>
@@ -402,7 +548,7 @@
                 Acceso exclusivo a catálogo de productos ganadores validados, proveedores certificados y márgenes reales del 40% al 60% sin arriesgar tu capital en inventarios muertos.
               </p>
             </div>
-            <ul class="space-y-2.5 text-xs text-gray-300 border-t border-white/10 pt-4">
+            <ul class="space-y-2.5 text-xs text-gray-300 border-t border-blue-500/15 pt-4">
               <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-400"></i> Productos de alta rotación testeados</li>
               <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-400"></i> Precios mayoristas de fábrica</li>
               <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-brand-400"></i> Sin inversión inicial de stock</li>
@@ -410,7 +556,7 @@
           </div>
 
           <!-- Pillar 3 -->
-          <div class="glass-card rounded-2xl p-8 border border-white/10 hover:border-brand-500/40 transition-all purple-glow-hover flex flex-col justify-between">
+          <div class="glass-card rounded-2xl p-8 border border-blue-500/20 hover:border-brand-400/50 transition-all blue-glow-hover flex flex-col justify-between">
             <div>
               <div class="w-14 h-14 rounded-2xl bg-brand-600/15 border border-brand-500/30 flex items-center justify-center mb-6 text-brand-400">
                 <i data-lucide="users" class="w-7 h-7"></i>
@@ -450,7 +596,7 @@
       <div class="space-y-4" id="faqList">
         
         <!-- Question 1 -->
-        <div class="faq-item glass-card rounded-2xl border border-white/10 transition-all">
+        <div class="faq-item glass-card rounded-2xl border border-blue-500/15 transition-all">
           <button type="button" class="faq-toggle w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 cursor-pointer">
             <span class="font-semibold text-base sm:text-lg text-white">¿Cómo funciona el servicio de fulfillment para dropshipping?</span>
             <i data-lucide="chevron-down" class="faq-chevron w-5 h-5 text-brand-400 transition-transform flex-shrink-0"></i>
@@ -461,7 +607,7 @@
         </div>
 
         <!-- Question 2 -->
-        <div class="faq-item glass-card rounded-2xl border border-white/10 transition-all">
+        <div class="faq-item glass-card rounded-2xl border border-blue-500/15 transition-all">
           <button type="button" class="faq-toggle w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 cursor-pointer">
             <span class="font-semibold text-base sm:text-lg text-white">¿Necesito experiencia previa vendiendo por internet para comenzar?</span>
             <i data-lucide="chevron-down" class="faq-chevron w-5 h-5 text-brand-400 transition-transform flex-shrink-0"></i>
@@ -472,7 +618,7 @@
         </div>
 
         <!-- Question 3 -->
-        <div class="faq-item glass-card rounded-2xl border border-white/10 transition-all">
+        <div class="faq-item glass-card rounded-2xl border border-blue-500/15 transition-all">
           <button type="button" class="faq-toggle w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 cursor-pointer">
             <span class="font-semibold text-base sm:text-lg text-white">¿Qué costo tiene la entrevista comercial de diagnóstico?</span>
             <i data-lucide="chevron-down" class="faq-chevron w-5 h-5 text-brand-400 transition-transform flex-shrink-0"></i>
@@ -483,7 +629,7 @@
         </div>
 
         <!-- Question 4 -->
-        <div class="faq-item glass-card rounded-2xl border border-white/10 transition-all">
+        <div class="faq-item glass-card rounded-2xl border border-blue-500/15 transition-all">
           <button type="button" class="faq-toggle w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 cursor-pointer">
             <span class="font-semibold text-base sm:text-lg text-white">¿Cómo se gestionan las devoluciones y novedades de entrega?</span>
             <i data-lucide="chevron-down" class="faq-chevron w-5 h-5 text-brand-400 transition-transform flex-shrink-0"></i>
@@ -500,7 +646,7 @@
   </main>
 
   <!-- ================= FOOTER ================= -->
-  <footer class="bg-dark-900 border-t border-white/10 pt-16 pb-12 relative bg-grid-subtle">
+  <footer class="bg-[#000000] border-t border-brand-600/25 pt-16 pb-12 relative bg-grid-subtle">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Multicolumn Layout -->
@@ -509,10 +655,10 @@
         <!-- Col 1: Brand -->
         <div>
           <div class="flex items-center gap-3 mb-4">
-            <div class="w-9 h-9 rounded-lg bg-brand-600 flex items-center justify-center">
-              <i data-lucide="boxes" class="w-5 h-5 text-white"></i>
+            <div class="w-11 h-11 rounded-xl overflow-hidden bg-black p-0 border border-[#5F0AC7]/40 shadow-md shadow-brand-600/30 flex items-center justify-center">
+              <img src="icons/dropscale-icon-256.png" alt="DropScale Icon" class="w-full h-full object-cover scale-110">
             </div>
-            <span class="text-lg font-extrabold text-white tracking-tight">DropScale Nexus</span>
+            <span class="text-lg font-extrabold text-white tracking-tight">DropScale</span>
           </div>
           <p class="text-gray-400 text-xs sm:text-sm leading-relaxed mb-5">
             Infraestructura logística, fulfillment y asesoría estratégica de alto rendimiento para tiendas de comercio electrónico y dropshippers en Latinoamérica.
@@ -569,7 +715,7 @@
 
       <!-- Bottom Bar -->
       <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
-        <p>© 2026 DropScale Nexus Commerce. Todos los derechos reservados.</p>
+        <p>© 2026 DropScale Commerce. Todos los derechos reservados.</p>
         <p class="flex items-center gap-4">
           <span class="hover:text-gray-400 cursor-pointer">Términos del Servicio</span>
           <span>•</span>
@@ -596,7 +742,7 @@
 
       <h3 class="text-2xl font-extrabold text-white mb-2">¡Postulación Recibida con Éxito!</h3>
       <p class="text-gray-300 text-sm mb-4">
-        Hemos registrado tus respuestas y descargado automáticamente tu <strong>archivo .CSV</strong> para Excel.
+        Hemos registrado tu información en nuestra base de datos y preparado tu diagnóstico comercial.
       </p>
 
       <div class="bg-white/5 rounded-xl p-3.5 mb-6 text-xs text-gray-300 border border-white/10">

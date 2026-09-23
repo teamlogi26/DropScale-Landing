@@ -1,13 +1,21 @@
 /**
- * DropScale / Nexus Commerce - Main Application Script
+ * DropScale Commerce - Main Application Script
  * Features:
  * - Lucide Icons initialization
  * - Progressive Disclosure (Dynamic form fields)
- * - CSV Export for Microsoft Excel (UTF-8 BOM formatted)
+ * - Real-Time Google Sheets Webhook Integration
+ * - LocalStorage Persistent Backup
  * - Animated Success Modal & Countdown
  * - Smart WhatsApp URL generation with personalized message
  * - Interactive FAQ Accordion
  */
+
+// ==============================================================================
+// CONFIGURACIÓN DE GOOGLE SHEETS
+// Pega aquí la URL de tu aplicación web de Google Apps Script (termina en /exec)
+// Si está vacía, los datos se respaldan en LocalStorage y WhatsApp funciona igual.
+// ==============================================================================
+const GOOGLE_SHEETS_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbwNH2-EkmWFUbDqS8NXxHb7IbplNL7cPtk8DZdHaVbfALZb0s7noDrbea6EcO62bxyX/exec';
 
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Initialize Lucide Icons
@@ -18,8 +26,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // 2. Progressive Disclosure for "Ha Vendido Anteriormente"
   const haVendidoSelect = document.getElementById('haVendido');
   const conditionalGroup = document.getElementById('conditionalExperienceGroup');
-  const cuantoHaVendidoInput = document.getElementById('cuantoHaVendido');
+  const ventasDiariasSelect = document.getElementById('ventasDiarias');
   const productoAnteriorInput = document.getElementById('productoAnterior');
+  const nichoSelect = document.getElementById('nicho');
 
   if (haVendidoSelect && conditionalGroup) {
     haVendidoSelect.addEventListener('change', (e) => {
@@ -28,13 +37,13 @@ document.addEventListener('DOMContentLoaded', () => {
         conditionalGroup.classList.remove('hidden-smooth');
       } else {
         conditionalGroup.classList.add('hidden-smooth');
-        cuantoHaVendidoInput.value = '';
-        productoAnteriorInput.value = '';
+        if (ventasDiariasSelect) ventasDiariasSelect.value = '';
+        if (productoAnteriorInput) productoAnteriorInput.value = '';
       }
     });
   }
 
-  // 3. Form Handling & CSV Generation
+  // 3. Form Handling & Real-time Google Sheets Sync
   const leadForm = document.getElementById('leadForm');
   const successModal = document.getElementById('successModal');
   const modalCard = document.getElementById('modalCard');
@@ -49,27 +58,38 @@ document.addEventListener('DOMContentLoaded', () => {
     leadForm.addEventListener('submit', (e) => {
       e.preventDefault();
 
-      // Form validation
+      // Form fields extraction
       const nombre = document.getElementById('nombre').value.trim();
       const apellido = document.getElementById('apellido').value.trim();
       const celular = document.getElementById('celular').value.trim();
       const correo = document.getElementById('correo').value.trim() || 'No proporcionado';
-      const haVendido = haVendidoSelect.value;
-      const cuantoHaVendido = cuantoHaVendidoInput.value.trim() || (haVendido === 'No' ? 'No aplica (Principiante)' : 'No especificado');
-      const productoAnterior = productoAnteriorInput.value.trim() || (haVendido === 'No' ? 'No aplica' : 'No especificado');
+      const haVendido = haVendidoSelect ? haVendidoSelect.value : 'No especificado';
+      
+      const ventasDiarias = (haVendido === 'Sí' && ventasDiariasSelect && ventasDiariasSelect.value) 
+        ? ventasDiariasSelect.value 
+        : (haVendido === 'No' ? '0 pedidos (Principiante)' : 'No especificado');
+
+      const productoAnterior = (haVendido === 'Sí' && productoAnteriorInput && productoAnteriorInput.value.trim()) 
+        ? productoAnteriorInput.value.trim() 
+        : (haVendido === 'No' ? 'No aplica (Primera tienda)' : 'No especificado');
+
+      const nicho = nichoSelect && nichoSelect.value ? nichoSelect.value : '';
       const productoNuevo = document.getElementById('productoNuevo').value.trim() || 'Por definir con el asesor';
 
-      // Basic required checks
+      // Validation check
       let hasError = false;
       const requiredInputs = [
         { el: document.getElementById('nombre'), val: nombre },
         { el: document.getElementById('apellido'), val: apellido },
         { el: document.getElementById('celular'), val: celular },
-        { el: haVendidoSelect, val: haVendido }
+        { el: haVendidoSelect, val: haVendido },
+        { el: nichoSelect, val: nicho }
       ];
 
       requiredInputs.forEach(item => {
-        const errorMsg = item.el.closest('div').parentElement.querySelector('.error-msg');
+        if (!item.el) return;
+        const parentCol = item.el.closest('.relative') || item.el.parentElement;
+        const errorMsg = parentCol.parentElement.querySelector('.error-msg');
         if (!item.val) {
           hasError = true;
           item.el.classList.add('border-rose-500');
@@ -84,11 +104,11 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      // Disable button during process
+      // Disable button during sync
       submitBtn.disabled = true;
       submitBtn.innerHTML = `
         <span class="inline-block animate-spin mr-2">⟳</span>
-        <span>Generando CSV y Conectando...</span>
+        <span>Guardando y conectando...</span>
       `;
 
       // Data record object
@@ -106,113 +126,86 @@ document.addEventListener('DOMContentLoaded', () => {
         celular,
         correo,
         haVendido,
-        cuantoHaVendido,
+        ventasDiarias,
+        nicho,
         productoAnterior,
         productoNuevo
       };
 
-      // Store in LocalStorage (simulating persistent database)
+      // 1. Respaldo persistente en LocalStorage del navegador
       try {
         const existingLeads = JSON.parse(localStorage.getItem('dropscale_leads') || '[]');
         existingLeads.push(leadData);
         localStorage.setItem('dropscale_leads', JSON.stringify(existingLeads));
       } catch (err) {
-        console.warn('LocalStorage not accessible:', err);
+        console.warn('LocalStorage no accesible:', err);
       }
 
-      // Generate CSV file
-      downloadCsvFile(leadData);
+      // 2. Envío en segundo plano a Google Sheets vía Webhook (si está configurada la URL)
+      if (GOOGLE_SHEETS_WEBHOOK_URL && GOOGLE_SHEETS_WEBHOOK_URL.trim().length > 10) {
+        fetch(GOOGLE_SHEETS_WEBHOOK_URL.trim(), {
+          method: 'POST',
+          mode: 'no-cors', // Obligatorio para Webhooks de Google Apps Script
+          headers: {
+            'Content-Type': 'text/plain;charset=utf-8'
+          },
+          body: JSON.stringify(leadData)
+        }).catch(err => {
+          console.warn('Sincronización con Google Sheets en segundo plano:', err);
+        });
+      }
 
-      // Setup WhatsApp URL
+      // 3. Preparar mensaje inteligente para WhatsApp
       const whatsappBase = 'https://wa.me/3105420351';
       let message = `Hola, mi nombre es *${nombre} ${apellido}* 👋.\n\n` +
-                    `Acabo de registrarme en DropScale para la entrevista de diagnóstico comercial sobre *E-commerce, Fulfillment y Dropshipping*.\n\n` +
+                    `Acabo de postularme en DropScale para el diagnóstico comercial sobre *E-commerce, Fulfillment y Dropshipping*.\n\n` +
                     `📱 *Celular:* ${celular}\n` +
                     `📧 *Correo:* ${correo}\n` +
+                    `🎯 *Nicho de mercado:* ${nicho}\n` +
                     `🛒 *¿He vendido antes?:* ${haVendido}\n`;
 
       if (haVendido === 'Sí') {
-        message += `💰 *Ventas aprox:* ${cuantoHaVendido}\n` +
-                   `📦 *Producto previo:* ${productoAnterior}\n`;
+        message += `📦 *Ventas diarias aprox:* ${ventasDiarias}\n` +
+                   `🏷️ *Experiencia previa:* ${productoAnterior}\n`;
       }
       if (productoNuevo && productoNuevo !== 'Por definir con el asesor') {
-        message += `✨ *Interés en nuevo producto:* ${productoNuevo}\n`;
+        message += `✨ *Producto específico de interés:* ${productoNuevo}\n`;
       }
-      message += `\nQuedo a la espera de coordinar la fecha y hora de la llamada. ¡Gracias!`;
+      message += `\nQuedo a la espera de coordinar la llamada con un asesor. ¡Muchas gracias!`;
 
       const whatsappUrl = `${whatsappBase}?text=${encodeURIComponent(message)}`;
       modalWhatsappLink.href = whatsappUrl;
 
-      // Show Success Modal
+      // 4. Mostrar Modal de éxito y cuenta regresiva
       showModal(whatsappUrl);
 
-      // Reset submit button
+      // 5. Limpiar todas las casillas del formulario y ocultar campos condicionales
+      leadForm.reset();
+      if (conditionalGroup) {
+        conditionalGroup.classList.add('hidden-smooth');
+      }
+      if (ventasDiariasSelect) ventasDiariasSelect.value = '';
+      if (productoAnteriorInput) productoAnteriorInput.value = '';
+      if (nichoSelect) nichoSelect.value = '';
+      if (haVendidoSelect) haVendidoSelect.value = '';
+
+      // Remover cualquier clase de error residual
+      leadForm.querySelectorAll('.border-rose-500').forEach(el => el.classList.remove('border-rose-500'));
+      leadForm.querySelectorAll('.error-msg').forEach(el => el.classList.add('hidden'));
+
+      // 6. Restaurar botón
       setTimeout(() => {
         submitBtn.disabled = false;
         submitBtn.innerHTML = `
           <i data-lucide="send" class="w-5 h-5"></i>
-          <span>Enviar Postulación y Descargar Ficha (.CSV)</span>
+          <span>Enviar Postulación y Conectar por WhatsApp</span>
         `;
         if (window.lucide) window.lucide.createIcons();
       }, 1000);
     });
   }
 
-  // 4. CSV Download Function with UTF-8 BOM
-  function downloadCsvFile(lead) {
-    const headers = [
-      'Fecha y Hora',
-      'Nombre',
-      'Apellido',
-      'Celular',
-      'Correo',
-      'Ha Vendido Antes',
-      'Monto Vendido',
-      'Producto Comercializado Anteriormente',
-      'Producto Nuevo de Interés'
-    ];
-
-    const values = [
-      lead.fecha,
-      lead.nombre,
-      lead.apellido,
-      lead.celular,
-      lead.correo,
-      lead.haVendido,
-      lead.cuantoHaVendido,
-      lead.productoAnterior,
-      lead.productoNuevo
-    ];
-
-    // Helper to escape CSV values according to RFC 4180
-    const escapeCsv = (val) => {
-      const text = (val ?? '').toString();
-      return `"${text.replace(/"/g, '""')}"`;
-    };
-
-    // Construct CSV String (Semicolon and Comma separated versions)
-    // Semicolon is the default in Spanish Excel; we can also provide UTF-8 BOM which ensures accents render correctly
-    const csvHeaderRow = headers.map(escapeCsv).join(';');
-    const csvDataRow = values.map(escapeCsv).join(';');
-    const csvContent = '\uFEFF' + csvHeaderRow + '\r\n' + csvDataRow + '\r\n';
-
-    // Create download blob
-    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-
-    // Clean filename
-    const cleanName = (lead.nombre + '_' + lead.apellido).replace(/[^a-zA-Z0-9_-]/g, '_');
-    const timestamp = new Date().toISOString().slice(0, 10);
-    link.setAttribute('href', url);
-    link.setAttribute('download', `Lead_DropScale_${cleanName}_${timestamp}.csv`);
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(url);
-  }
-
-  // 5. Success Modal & Countdown Logic
+  // 4. Success Modal & Countdown Logic
   function showModal(redirectUrl) {
     if (!successModal || !modalCard) return;
 
@@ -233,7 +226,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (seconds <= 0) {
         clearInterval(countdownInterval);
-        // Redirect to WhatsApp in a new tab
+        // Automatically open WhatsApp in a new tab or redirect
         window.open(redirectUrl, '_blank');
       }
     }, 1000);
@@ -243,10 +236,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!successModal || !modalCard) return;
     if (countdownInterval) clearInterval(countdownInterval);
 
-    successModal.classList.add('opacity-0', 'pointer-events-none');
     successModal.classList.remove('opacity-100', 'pointer-events-auto');
-    modalCard.classList.add('scale-95');
+    successModal.classList.add('opacity-0', 'pointer-events-none');
     modalCard.classList.remove('scale-100');
+    modalCard.classList.add('scale-95');
   }
 
   if (closeModalBtn) {
@@ -261,38 +254,52 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 6. FAQ Accordion Interaction
-  const faqItems = document.querySelectorAll('.faq-item');
-  faqItems.forEach(item => {
-    const toggleBtn = item.querySelector('.faq-toggle');
-    if (toggleBtn) {
-      toggleBtn.addEventListener('click', () => {
-        const isCurrentlyActive = item.classList.contains('active');
+  // 5. Interactive FAQ Accordion
+  const faqToggles = document.querySelectorAll('.faq-toggle');
 
-        // Close all other FAQs (accordion style)
-        faqItems.forEach(otherItem => {
-          if (otherItem !== item) {
-            otherItem.classList.remove('active');
-          }
-        });
+  faqToggles.forEach(toggle => {
+    toggle.addEventListener('click', () => {
+      const content = toggle.nextElementSibling;
+      const icon = toggle.querySelector('.faq-icon');
+      const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
 
-        // Toggle current FAQ
-        if (!isCurrentlyActive) {
-          item.classList.add('active');
-        } else {
-          item.classList.remove('active');
+      // Close all other FAQs for clean single-open accordion feel
+      faqToggles.forEach(otherToggle => {
+        if (otherToggle !== toggle) {
+          otherToggle.setAttribute('aria-expanded', 'false');
+          const otherContent = otherToggle.nextElementSibling;
+          const otherIcon = otherToggle.querySelector('.faq-icon');
+          if (otherContent) otherContent.classList.add('hidden');
+          if (otherIcon) otherIcon.classList.remove('rotate-180');
         }
       });
-    }
+
+      // Toggle current
+      if (isExpanded) {
+        toggle.setAttribute('aria-expanded', 'false');
+        if (content) content.classList.add('hidden');
+        if (icon) icon.classList.remove('rotate-180');
+      } else {
+        toggle.setAttribute('aria-expanded', 'true');
+        if (content) content.classList.remove('hidden');
+        if (icon) icon.classList.add('rotate-180');
+      }
+    });
   });
 
-  // Smooth clear errors on typing
-  const formInputs = document.querySelectorAll('#leadForm input, #leadForm select, #leadForm textarea');
-  formInputs.forEach(input => {
-    input.addEventListener('input', () => {
-      input.classList.remove('border-rose-500');
-      const errorMsg = input.closest('div').parentElement?.querySelector('.error-msg');
-      if (errorMsg) errorMsg.classList.add('hidden');
+  // 6. Smooth Scroll for Navigation Anchors
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        e.preventDefault();
+        targetElement.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
     });
   });
 });

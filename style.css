@@ -1,15 +1,17 @@
 /* ==========================================================================
-   DropScale / Nexus Commerce - Custom Styles
+   DropScale Commerce - Custom Styles
+   Tema Estándar: Pure Black (#000000) con Acento #5F0AC7 y Opacidad 47%
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-  --primary-purple: #7c3aed;
-  --primary-glow: rgba(124, 58, 237, 0.35);
-  --dark-bg: #09090b;
-  --card-bg: #121216;
-  --card-border: rgba(255, 255, 255, 0.08);
+  --primary-accent: #5f0ac7;
+  --primary-accent-rgb: 95, 10, 199;
+  --primary-glow: rgba(95, 10, 199, 0.45);
+  --dark-bg: #000000;
+  --card-bg: rgba(18, 18, 24, 0.47);
+  --card-border: rgba(95, 10, 199, 0.25);
 }
 
 html {
@@ -24,66 +26,66 @@ html {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #09090b;
+  background: #000000;
 }
 ::-webkit-scrollbar-thumb {
-  background: #27272a;
+  background: #1f1f2e;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #3f3f46;
+  background: var(--primary-accent);
 }
 
 /* Background Subtle Grid Pattern */
 .bg-grid-subtle {
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    linear-gradient(to right, rgba(95, 10, 199, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(95, 10, 199, 0.08) 1px, transparent 1px);
   background-size: 40px 40px;
 }
 
 .bg-grid-hero {
   background-image: 
-    radial-gradient(ellipse at 50% 0%, rgba(124, 58, 237, 0.22) 0%, rgba(9, 9, 11, 0) 70%),
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    radial-gradient(ellipse at 50% 0%, rgba(95, 10, 199, 0.38) 0%, rgba(0, 0, 0, 0) 75%),
+    linear-gradient(to right, rgba(95, 10, 199, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(95, 10, 199, 0.06) 1px, transparent 1px);
   background-size: 100% 100%, 48px 48px, 48px 48px;
 }
 
-/* Purple Glow Accents */
-.purple-glow {
-  box-shadow: 0 0 35px -5px rgba(124, 58, 237, 0.3);
+/* Glow Accents */
+.blue-glow, .purple-glow {
+  box-shadow: 0 0 35px -5px var(--primary-glow);
 }
 
-.purple-glow-hover {
+.blue-glow-hover, .purple-glow-hover {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.purple-glow-hover:hover {
-  box-shadow: 0 0 30px rgba(139, 92, 246, 0.45);
+.blue-glow-hover:hover, .purple-glow-hover:hover {
+  box-shadow: 0 0 32px rgba(95, 10, 199, 0.6);
   transform: translateY(-2px);
 }
 
-/* Glassmorphism Card Style */
+/* Glassmorphism Card Style - 47% Opacity */
 .glass-card {
-  background: rgba(18, 18, 24, 0.75);
+  background: var(--card-bg);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--card-border);
 }
 
 .glass-card:hover {
-  border-color: rgba(139, 92, 246, 0.3);
+  border-color: rgba(168, 85, 247, 0.45);
 }
 
 /* Gradient Text */
 .text-gradient {
-  background: linear-gradient(135deg, #ffffff 30%, #c4b5fd 100%);
+  background: linear-gradient(135deg, #ffffff 30%, #d8b4fe 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.text-gradient-purple {
-  background: linear-gradient(135deg, #a78bfa 0%, #7c3aed 50%, #4f46e5 100%);
+.text-gradient-purple, .text-gradient-blue {
+  background: linear-gradient(135deg, #f3e8ff 0%, #a855f7 45%, #5f0ac7 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -135,3 +137,100 @@ html {
 .animate-pulse-subtle {
   animation: pulse-subtle 3s infinite ease-in-out;
 }
+
+/* ==========================================================================
+   AMBIENT TRANSLUCENT WATERMARKS: PESOS "$" & GRÁFICOS DE BARRA CON FLECHA
+   ========================================================================== */
+@keyframes float-slow {
+  0%, 100% {
+    translate: 0 0px;
+  }
+  50% {
+    translate: 0 -14px;
+  }
+}
+
+@keyframes float-reverse {
+  0%, 100% {
+    translate: 0 0px;
+  }
+  50% {
+    translate: 0 14px;
+  }
+}
+
+@keyframes float-alt {
+  0%, 100% {
+    translate: 0 0px;
+  }
+  50% {
+    translate: 0 -10px;
+  }
+}
+
+@keyframes float-wobble-1 {
+  0%, 100% {
+    translate: 0 0px;
+    rotate: -3deg;
+  }
+  50% {
+    translate: 0 -16px;
+    rotate: 5deg;
+  }
+}
+
+@keyframes float-wobble-2 {
+  0%, 100% {
+    translate: 0 0px;
+    rotate: 4deg;
+  }
+  50% {
+    translate: 0 16px;
+    rotate: -4deg;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+
+.animate-float-1 {
+  animation: float-slow 5s ease-in-out infinite;
+}
+
+.animate-float-2 {
+  animation: float-reverse 6.5s ease-in-out infinite;
+}
+
+.animate-float-3 {
+  animation: float-alt 5.8s ease-in-out infinite;
+}
+
+.animate-float-4 {
+  animation: float-slow 8s ease-in-out infinite;
+}
+
+.animate-float-5 {
+  animation: float-reverse 9.5s ease-in-out infinite;
+}
+
+.animate-wobble-1 {
+  animation: float-wobble-1 7s ease-in-out infinite;
+}
+
+.animate-wobble-2 {
+  animation: float-wobble-2 8.5s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+
